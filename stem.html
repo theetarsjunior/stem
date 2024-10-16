@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decimal Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background-color: blue
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Decimal to Binary, Octal, and Hexadecimal Converter</h1>
+
+    <label for="decimalInput">Enter a Decimal Number:</label>
+    <input type="number" id="decimalInput" placeholder="Enter decimal number">
+    <button onclick="convert()">Convert</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function convert() {
+            // Get the decimal input value
+            const decimal = parseInt(document.getElementById("decimalInput").value);
+
+            // If the input is invalid or empty, show an error message
+            if (isNaN(decimal)) {
+                document.getElementById("result").innerHTML = "<p style='color:red;'>Please enter a valid decimal number.</p>";
+                return;
+            }
+
+            // Convert the decimal to binary, octal, and hexadecimal
+            const binary = decimal.toString(2);
+            const octal = decimal.toString(8);
+            const hexadecimal = decimal.toString(16).toUpperCase();
+
+            // Display the results
+            document.getElementById("result").innerHTML = `
+                <p><strong>Binary:</strong> ${binary}</p>
+                <p><strong>Octal:</strong> ${octal}</p>
+                <p><strong>Hexadecimal:</strong> ${hexadecimal}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
